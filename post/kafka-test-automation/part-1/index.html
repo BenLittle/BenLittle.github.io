@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+	<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Ben Little">
+<meta name="description" content="A blog about business specific, test automation">
+<meta name="generator" content="Hugo 0.42.1" />
+<title>Test Automation with Kafka</title>
+<link rel="shortcut icon" href="https://benlittle.github.io/images/favicon.ico">
+<link rel="stylesheet" href="https://benlittle.github.io/css/style.css">
+<link rel="stylesheet" href="https://benlittle.github.io/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+
+
+
+<meta property="og:title" content="Test Automation with Kafka" />
+<meta property="og:description" content="Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.
+I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
+In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://benlittle.github.io/post/kafka-test-automation/part-1/" />
+
+
+
+<meta property="article:published_time" content="2018-07-12T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-07-12T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Test Automation with Kafka">
+<meta itemprop="description" content="Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.
+I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
+In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:">
+
+
+<meta itemprop="datePublished" content="2018-07-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="345">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Test Automation with Kafka"/>
+<meta name="twitter:description" content="Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.
+I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
+In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:"/>
+
+
+    </head>
+<body>
+    <nav class="main-nav">
+	
+		<a href='https://benlittle.github.io/'> <span class="arrow">←</span>Home</a>
+	
+
+	
+ 		<a href='/about/'>About</a>
+  	
+
+	
+</nav>
+
+    <section id="wrapper">
+        
+        
+<article class="post">
+    <header>
+        <h1>Test Automation with Kafka</h1>
+        <h2 class="subtitle"></h2>
+        <h2 class="headline">
+        July 12, 2018
+        <br>
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This guide is an introduction to test automation through the use of <a href="http://kafka.apache.org/">Apache Kafka®</a>. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.</p>
+
+<p>I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.</p>
+
+<p>In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:</p>
+
+<ol>
+<li>Sending (producing) a message onto a Kafka topic</li>
+<li>Filtering (consuming) for a specific message</li>
+<li>Asserting against a value in the filtered message</li>
+</ol>
+
+<blockquote>
+<p>This, in a nutshell, is the same automation functionality that you would use in industry.</p>
+</blockquote>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+<li>Knowledge of a programming language - we will be using Javascript</li>
+<li>Knowledge of setting up a test automation framework - we will be using <a href="https://github.com/avajs/ava">AVA</a></li>
+<li>Docker</li>
+</ul>
+
+<blockquote>
+<p>For the brevity of this tutorial, I will not be going into detail on every section. If you&rsquo;d like something elaborating, please get in touch.</p>
+</blockquote>
+
+<h2 id="setup">Setup</h2>
+
+<p>To develop the automation framework, we need a local instance of Kafka and its dependencies. We will use <a href="https://www.docker.com/what-docker#/overview">Docker</a> and <a href="https://docs.docker.com/compose/overview/">docker-compose</a>. Compose is a tool for defining and running multi-container Docker applications.</p>
+
+<h3 id="docker-compose-yml">docker-compose.yml</h3>
+
+<ol>
+<li>Within your directory, create a <code>docker-compose.yml</code> file.</li>
+<li>We will use a <a href="https://hub.docker.com/r/wurstmeister/kafka/">public container</a> for this,
+alongside Zookeeper.</li>
+<li>Kafka uses Zookeeper to store a variety of configuration settings:
+
+<ul>
+<li>Topics under a broker</li>
+<li>Next available offset for a Consumer/topic/partition.</li>
+</ul></li>
+<li>We can now configure our Kafka instance:</li>
+</ol>
+
+<pre><code>version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - &quot;2181:2181&quot;
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - &quot;9092:9092&quot;
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_CREATE_TOPICS: &quot;testAutomationTopic:1:1&quot;
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+</code></pre>
+
+<p>This is the minimum configuration required, but also includes <code>KAFKA_CREATE_TOPICS</code>, where we pre-determine the topic name, its partitions (1) and replicas (1).</p>
+
+<h3 id="execute-docker-compose-yml-file">Execute docker-compose.yml file</h3>
+
+<p>Now we have the necessary configuration needed to run Kafka locally, we can now build the Docker container.</p>
+
+<ol>
+<li>Within the directory of your <code>docker-compose.yml</code>, run <code>docker-compose up</code>.</li>
+<li>Once your container images have been downloaded, you&rsquo;ll now have a locally running Kafka instance.</li>
+</ol>
+
+<h4 id="coming-up-next">Coming up next</h4>
+
+<p>In the next blog post, we will create our test framework.</p>
+
+    </section>
+</article>
+
+<footer id="post-meta" class="clearfix">
+    
+    <img class="avatar" src="https://benlittle.github.io/images/avatar.png">
+    <div>
+        <span class="dark">Ben Little</span>
+        <span>Test Automation Consultant</span>
+    </div>
+    
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbenlittle.github.io%2fpost%2fkafka-test-automation%2fpart-1%2f - Test%20Automation%20with%20Kafka ">
+  <span class="icon-twitter"> Tweet</span>
+</a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;">
+  <span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+
+
+<ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+</ul>
+
+
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.github.com/BenLittle">
+        <i class="fa fa-github"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2018 Ben Little
+    
+    </p>
+</footer>
+
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://benlittle.github.io/js/main.js"></script>
+<script src="https://benlittle.github.io/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>

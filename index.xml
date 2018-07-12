@@ -6,9 +6,21 @@
     <description>Recent content on The Employable Tester</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
+    <lastBuildDate>Thu, 12 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://benlittle.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Test Automation with Kafka</title>
+      <link>https://benlittle.github.io/post/kafka-test-automation/part-1/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://benlittle.github.io/post/kafka-test-automation/part-1/</guid>
+      <description>Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&amp;rsquo;s used widely across many industries.
+I&amp;rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
+In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:</description>
+    </item>
     
   </channel>
 </rss>
