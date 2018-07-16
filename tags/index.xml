@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on The Employable Tester</title>
+    <title>Tags on Ben Little - Test Automation Consultant</title>
     <link>https://benlittle.github.io/tags/</link>
-    <description>Recent content in Tags on The Employable Tester</description>
+    <description>Recent content in Tags on Ben Little - Test Automation Consultant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
+    <lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://benlittle.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ava</title>
+      <link>https://benlittle.github.io/tags/ava/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://benlittle.github.io/tags/ava/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://benlittle.github.io/tags/docker/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://benlittle.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://benlittle.github.io/tags/javascript/</link>
+      <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://benlittle.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://benlittle.github.io/tags/kafka/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://benlittle.github.io/tags/kafka/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

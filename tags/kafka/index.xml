@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kafka on Ben Little - Test Automation Consultant</title>
+    <link>https://benlittle.github.io/tags/kafka/</link>
+    <description>Recent content in Kafka on Ben Little - Test Automation Consultant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 12 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://benlittle.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test Automation with Kafka - Docker and Kafka</title>
+      <link>https://benlittle.github.io/post/kafka-test-automation/part-1/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://benlittle.github.io/post/kafka-test-automation/part-1/</guid>
+      <description>Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&amp;rsquo;s used widely across many industries.
+I&amp;rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
+In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:</description>
+    </item>
+    
+  </channel>
+</rss>

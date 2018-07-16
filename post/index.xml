@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on The Employable Tester</title>
+    <title>Posts on Ben Little - Test Automation Consultant</title>
     <link>https://benlittle.github.io/post/</link>
-    <description>Recent content in Posts on The Employable Tester</description>
+    <description>Recent content in Posts on Ben Little - Test Automation Consultant</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Mon, 16 Jul 2018 00:00:00 +0000</lastBuildDate>
@@ -12,18 +12,18 @@
     
     
     <item>
-      <title>2. Test Automation with Kafka - Set up AVA</title>
+      <title>Test Automation with Kafka - Set up the AVA Test Framework</title>
       <link>https://benlittle.github.io/post/kafka-test-automation/part-2/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://benlittle.github.io/post/kafka-test-automation/part-2/</guid>
       <description>Introduction We&amp;rsquo;re going to use AVA as our chosen test runner. AVA takes advantage of asynchronous functions and runs your tests concurrently. In addition, test files are run in parallel as separate processes, giving you even better performance and an isolated environment for each test file.
-Setup  Install and setup AVA: npx create-ava --next
- Within your directory, you should have a very basic package.json file configured. This is similar to your pom.</description>
+Setup  Install and setup AVA - npx create-ava --next.
+ Within your directory, you should have a very basic package.json file now configured.</description>
     </item>
     
     <item>
-      <title>1. Test Automation with Kafka - Docker and Kafka</title>
+      <title>Test Automation with Kafka - Docker and Kafka</title>
       <link>https://benlittle.github.io/post/kafka-test-automation/part-1/</link>
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       

@@ -18,7 +18,37 @@
   </url>
   
   <url>
+    <loc>https://benlittle.github.io/tags/ava/</loc>
+    <lastmod>2018-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://benlittle.github.io/</loc>
+    <lastmod>2018-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://benlittle.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://benlittle.github.io/tags/docker/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://benlittle.github.io/tags/javascript/</loc>
+    <lastmod>2018-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://benlittle.github.io/tags/kafka/</loc>
+    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,11 +60,6 @@
   
   <url>
     <loc>https://benlittle.github.io/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://benlittle.github.io/</loc>
     <lastmod>2018-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
