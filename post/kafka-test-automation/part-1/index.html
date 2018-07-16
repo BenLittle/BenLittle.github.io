@@ -7,7 +7,7 @@
 <meta name="author" content="Ben Little">
 <meta name="description" content="A blog about business specific, test automation">
 <meta name="generator" content="Hugo 0.42.1" />
-<title>Test Automation with Kafka</title>
+<title>1. Test Automation with Kafka - Docker and Kafka</title>
 <link rel="shortcut icon" href="https://benlittle.github.io/images/favicon.ico">
 <link rel="stylesheet" href="https://benlittle.github.io/css/style.css">
 <link rel="stylesheet" href="https://benlittle.github.io/css/highlight.css">
@@ -19,7 +19,7 @@
 
 
 
-<meta property="og:title" content="Test Automation with Kafka" />
+<meta property="og:title" content="1. Test Automation with Kafka - Docker and Kafka" />
 <meta property="og:description" content="Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.
 I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
 In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:" />
@@ -44,7 +44,7 @@ In this series of posts, I will show you how to set up a full end-to-end test au
 
 
 
-<meta itemprop="name" content="Test Automation with Kafka">
+<meta itemprop="name" content="1. Test Automation with Kafka - Docker and Kafka">
 <meta itemprop="description" content="Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.
 I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
 In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:">
@@ -52,14 +52,14 @@ In this series of posts, I will show you how to set up a full end-to-end test au
 
 <meta itemprop="datePublished" content="2018-07-12T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="345">
+<meta itemprop="wordCount" content="346">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Test Automation with Kafka"/>
+<meta name="twitter:title" content="1. Test Automation with Kafka - Docker and Kafka"/>
 <meta name="twitter:description" content="Introduction This guide is an introduction to test automation through the use of Apache Kafka®. Apache Kafka® is a publish-subscribe messaging system that&rsquo;s used widely across many industries.
 I&rsquo;ve previously worked on projects that used Kafka for low latency, high volume, scalable data streaming in real-time applications.
 In this series of posts, I will show you how to set up a full end-to-end test automation framework, which will include:"/>
@@ -84,7 +84,7 @@ In this series of posts, I will show you how to set up a full end-to-end test au
         
 <article class="post">
     <header>
-        <h1>Test Automation with Kafka</h1>
+        <h1>1. Test Automation with Kafka - Docker and Kafka</h1>
         <h2 class="subtitle"></h2>
         <h2 class="headline">
         July 12, 2018
@@ -118,7 +118,8 @@ In this series of posts, I will show you how to set up a full end-to-end test au
 <ul>
 <li>Knowledge of a programming language - we will be using Javascript</li>
 <li>Knowledge of setting up a test automation framework - we will be using <a href="https://github.com/avajs/ava">AVA</a></li>
-<li>Docker</li>
+<li><a href="https://www.npmjs.com/">NPM</a></li>
+<li><a href="https://www.docker.com/">Docker</a></li>
 </ul>
 
 <blockquote>
@@ -144,7 +145,7 @@ alongside Zookeeper.</li>
 <li>We can now configure our Kafka instance:</li>
 </ol>
 
-<pre><code>version: '2'
+<pre><code class="language-yaml">version: '2'
 services:
   zookeeper:
     image: wurstmeister/zookeeper
@@ -192,7 +193,7 @@ services:
     </div>
     
     <section id="sharing">
-        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbenlittle.github.io%2fpost%2fkafka-test-automation%2fpart-1%2f - Test%20Automation%20with%20Kafka ">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbenlittle.github.io%2fpost%2fkafka-test-automation%2fpart-1%2f - 1.%20Test%20Automation%20with%20Kafka%20-%20Docker%20and%20Kafka ">
   <span class="icon-twitter"> Tweet</span>
 </a>
 
@@ -214,6 +215,10 @@ services:
 
     
     
+    
+        <li>
+            <a href="/post/kafka-test-automation/part-2/">2. Test Automation with Kafka - Set up AVA<aside class="dates">Jul 16 2018</aside></a>
+        </li>
     
 </ul>
 

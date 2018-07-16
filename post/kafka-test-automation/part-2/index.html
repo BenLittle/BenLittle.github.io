@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+	<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Ben Little">
+<meta name="description" content="A blog about business specific, test automation">
+<meta name="generator" content="Hugo 0.42.1" />
+<title>2. Test Automation with Kafka - Set up AVA</title>
+<link rel="shortcut icon" href="https://benlittle.github.io/images/favicon.ico">
+<link rel="stylesheet" href="https://benlittle.github.io/css/style.css">
+<link rel="stylesheet" href="https://benlittle.github.io/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+
+
+
+<meta property="og:title" content="2. Test Automation with Kafka - Set up AVA" />
+<meta property="og:description" content="Introduction We&rsquo;re going to use AVA as our chosen test runner. AVA takes advantage of asynchronous functions and runs your tests concurrently. In addition, test files are run in parallel as separate processes, giving you even better performance and an isolated environment for each test file.
+Setup  Install and setup AVA: npx create-ava --next
+ Within your directory, you should have a very basic package.json file configured. This is similar to your pom." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://benlittle.github.io/post/kafka-test-automation/part-2/" />
+
+
+
+<meta property="article:published_time" content="2018-07-16T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-07-16T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="2. Test Automation with Kafka - Set up AVA">
+<meta itemprop="description" content="Introduction We&rsquo;re going to use AVA as our chosen test runner. AVA takes advantage of asynchronous functions and runs your tests concurrently. In addition, test files are run in parallel as separate processes, giving you even better performance and an isolated environment for each test file.
+Setup  Install and setup AVA: npx create-ava --next
+ Within your directory, you should have a very basic package.json file configured. This is similar to your pom.">
+
+
+<meta itemprop="datePublished" content="2018-07-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="183">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2. Test Automation with Kafka - Set up AVA"/>
+<meta name="twitter:description" content="Introduction We&rsquo;re going to use AVA as our chosen test runner. AVA takes advantage of asynchronous functions and runs your tests concurrently. In addition, test files are run in parallel as separate processes, giving you even better performance and an isolated environment for each test file.
+Setup  Install and setup AVA: npx create-ava --next
+ Within your directory, you should have a very basic package.json file configured. This is similar to your pom."/>
+
+
+    </head>
+<body>
+    <nav class="main-nav">
+	
+		<a href='https://benlittle.github.io/'> <span class="arrow">←</span>Home</a>
+	
+
+	
+ 		<a href='/about/'>About</a>
+  	
+
+	
+</nav>
+
+    <section id="wrapper">
+        
+        
+<article class="post">
+    <header>
+        <h1>2. Test Automation with Kafka - Set up AVA</h1>
+        <h2 class="subtitle"></h2>
+        <h2 class="headline">
+        July 16, 2018
+        <br>
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        
+
+<h2 id="introduction">Introduction</h2>
+
+<p>We&rsquo;re going to use <a href="https://github.com/avajs/ava">AVA</a> as our chosen test runner. AVA takes advantage of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">asynchronous functions</a> and runs your tests concurrently. In addition, test files are run in parallel as separate processes, giving you even better performance and an isolated environment for each test file.</p>
+
+<h2 id="setup">Setup</h2>
+
+<ol>
+<li><p>Install and setup AVA: <code>npx create-ava --next</code></p></li>
+
+<li><p>Within your directory, you should have a very basic <code>package.json</code> file configured. This is similar to your <code>pom.xml</code> in Java, used by Maven to build the project.</p></li>
+
+<li><p>Create a file named <code>test.js</code>. AVA defaults to the following patterns <code>test.js test-*.js test/**/*.js **/__tests__/**/*.js **/*.test.js</code>, so it will run your test file without any additional configuration.</p>
+
+<ul>
+<li>If you don&rsquo;t conform the patterns above, you can tell AVA where your test files are by including the following in your <code>package.json</code> file:</li>
+</ul>
+
+<pre><code class="language-json">&quot;ava&quot; : {
+    &quot;files&quot;: [
+        &quot;the/location/of/your/tests/*&quot;
+    ]
+}
+</code></pre></li>
+
+<li><p>Within your test file, you need to import the test function from AVA. You can then create your first test scaffold.</p>
+
+<pre><code class="language-javascript">import test from 'AVA;
+test('Your test name', t  =&gt; {
+    
+});
+</code></pre></li>
+
+<li><p>Our test framework is now ready to have Kafka integrated into.</p></li>
+</ol>
+
+    </section>
+</article>
+
+<footer id="post-meta" class="clearfix">
+    
+    <img class="avatar" src="https://benlittle.github.io/images/avatar.png">
+    <div>
+        <span class="dark">Ben Little</span>
+        <span>Test Automation Consultant</span>
+    </div>
+    
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbenlittle.github.io%2fpost%2fkafka-test-automation%2fpart-2%2f - 2.%20Test%20Automation%20with%20Kafka%20-%20Set%20up%20AVA ">
+  <span class="icon-twitter"> Tweet</span>
+</a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;">
+  <span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+
+
+<ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/post/kafka-test-automation/part-1/">1. Test Automation with Kafka - Docker and Kafka<aside class="dates">Jul 12 2018</aside></a>
+        </li>
+    
+</ul>
+
+
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.github.com/BenLittle">
+        <i class="fa fa-github"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2018 Ben Little
+    
+    </p>
+</footer>
+
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://benlittle.github.io/js/main.js"></script>
+<script src="https://benlittle.github.io/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>
